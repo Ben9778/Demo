@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.StudentMapper">
+    <resultMap id="findStudents" type="org.example.demo.entity.Student">
+        <id column="id" property="id"></id>
+        <result column="studentName" property="student_name"></result>
+        <result column="gender" property="gender"></result>
+        <result column="birthday" property="birthday"></result>
+        <result column="studentClass" property="student_class"></result>
+    </resultMap>
+    <select id="findStudentById" parameterType="String" resultMap="findStudents">
+        select id,student_name studentName,gender,birthday,student_class studentClass from students where id=#{id};
+    </select>
+    <select id="findStudentList" resultMap="findStudents">
+        select * from students;
+    </select>
+</mapper>
