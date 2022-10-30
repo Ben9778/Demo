@@ -14,6 +14,6 @@
         select id,student_name studentName,gender,birthday,student_class studentClass from students where id=#{id};
     </select>
     <select id="findStudentList" resultMap="findStudents">
-        select * from students;
+        select id,student_name studentName,gender,birthday,student_class studentClass from students;
     </select>
 </mapper>
